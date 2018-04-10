@@ -97,6 +97,9 @@
   <ItemGroup>
     <Compile Include="Candle.cs" />
     <Compile Include="FXCMCandleParser.cs" />
+    <Compile Include="FXCMCandlesResponse.cs" />
+    <Compile Include="FXCMOffer.cs" />
+    <Compile Include="FXCMOfferResponse.cs" />
     <Compile Include="FXCMResponse.cs" />
     <Compile Include="FXCMResponseParser.cs" />
     <Compile Include="IFXCMCandleParser.cs" />

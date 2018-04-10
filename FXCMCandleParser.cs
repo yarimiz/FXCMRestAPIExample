@@ -8,7 +8,7 @@ namespace FXCMRestAPIExample
 {
     public class FXCMCandleParser : IFXCMCandleParser
     {
-        public List<FXCMCandle> ParseCandles(FXCMResponse fxcmResponse)
+        public List<FXCMCandle> ParseCandles(FXCMCandlesResponse fxcmResponse)
         {
             var candleList = new List<FXCMCandle>();
             fxcmResponse.Candles.ToList().ForEach(array => candleList.Add(ParseCandle(array)));

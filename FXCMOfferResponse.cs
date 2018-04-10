@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace FXCMRestAPIExample
 {
-    public abstract class FXCMResponse
+    public class FXCMOfferResponse : FXCMResponse
     {
-        [JsonProperty("response")]
-        public ResponseMetaData Metadata { get; set; }
+        [JsonProperty("offers")]
+        public List<FXCMOffer> Offers { get; set; }
     }
 }

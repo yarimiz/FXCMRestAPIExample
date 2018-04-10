@@ -9,14 +9,14 @@ namespace FXCMRestAPIExample
 {
     public class FXCMResponseParser : IFXCMResponseParser
     {
-        public FXCMResponse Parse(string json)
+        public T Parse<T>(string json)
         {
-            return JsonConvert.DeserializeObject<FXCMResponse>(json);
+            return JsonConvert.DeserializeObject<T>(json);
         }
     }
 
     public interface IFXCMResponseParser
     {
-        FXCMResponse Parse(string json);
+        T Parse<T>(string json);
     }
 }

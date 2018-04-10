@@ -2,6 +2,7 @@
 using Quobject.SocketIoClientDotNet.Client;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 
 namespace FXCMRestAPIExample
@@ -46,12 +47,14 @@ namespace FXCMRestAPIExample
 
         private static void OnConnect(string bearer_token)
         {
-            var queryString = ConstructHistoryRequestString(1, "m1", 10);
-            var fxcmResponse = _responseParser.Parse(GetRawResponse(queryString, bearer_token));
+            var instruments = _responseParser.Parse<FXCMOfferResponse>(GetRawResponse("/trading/get_model/?models=Offer", bearer_token)).Offers;
+            var queryString = ConstructHistoryRequestString(instruments.Single(o => o.Currency == "USD/JPY").OfferId, "m5", 2200);
+            var fxcmResponse = _responseParser.Parse<FXCMCandlesResponse>(GetRawResponse(queryString, bearer_token));
 
             if (fxcmResponse.Metadata.Executed)
             {
                 var candles = _candleParser.ParseCandles(fxcmResponse);
+                candles.ForEach(candle => Console.WriteLine(candle.ToString()));
             }
             else
             {

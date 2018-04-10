@@ -14,5 +14,10 @@ namespace FXCMRestAPIExample
         public decimal AskHigh { get; set; }
         public decimal AskLow { get; set; }
         public int TickQty { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Time},{BidOpen},{AskOpen},{BidHigh},{AskHigh},{BidLow},{AskLow},{BidClose},{AskClose}";
+        }
     }
 }

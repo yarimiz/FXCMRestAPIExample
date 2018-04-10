@@ -4,6 +4,6 @@ namespace FXCMRestAPIExample
 {
     public interface IFXCMCandleParser
     {
-        List<FXCMCandle> ParseCandles(FXCMResponse fxcmResponse);
+        List<FXCMCandle> ParseCandles(FXCMCandlesResponse fxcmResponse);
     }
 }

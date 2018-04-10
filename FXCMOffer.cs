@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace FXCMRestAPIExample
 {
-    public abstract class FXCMResponse
+    public class FXCMOffer
     {
-        [JsonProperty("response")]
-        public ResponseMetaData Metadata { get; set; }
+        [JsonProperty("offerid")]
+        public int OfferId { get; set; }
+        [JsonProperty("currency")]
+        public string Currency { get; set; }
     }
 }
